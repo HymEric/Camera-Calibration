@@ -46,7 +46,7 @@
 
   We set $R=R_x(\psi)R_y(\varphi)R_z(\theta)​$ therefore,
   $$
-  X_{cam}=\left( \begin{array}{ccc}X_{cam}\\ 1 \end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\0& 1\end{array}\right]\left( \begin{array}{ccc}\widetilde{X}\\ 1\end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\0& 1\end{array}\right]X
+  X_{cam}=\left( \begin{array}{ccc}X_{cam} \\ 1 \end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\ 0& 1 \end{array}\right]\left( \begin{array}{ccc}\widetilde{X}\\ 1\end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C} \\ 0& 1 \end{array}\right]X
   $$
   Where we also can say $t=R\widetilde{C}​$ and the $X​$ we will discuss later.
 
