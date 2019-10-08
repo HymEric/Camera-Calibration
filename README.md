@@ -47,7 +47,7 @@
   We set $R=R_x(\psi)R_y(\varphi)R_z(\theta)​$ therefore,
   $$
  \begin{pmatrix}
-x & y \\\
+x & y \\\\
 z & v
 \end{pmatrix}
   $$
