@@ -1,5 +1,7 @@
 # Camera calibration
 
+**Notes:** Please install [GitHub with MathJax](https://chrome.google.com/webstore/detail/github-with-mathjax/ioemnmodlmafdkllaclgeombjnmnbima) to view LaTex formulation, Thank you.
+
 ### **Theory:**
 
 - **Definition:** A camera projects 3D world-points onto the 2D image plane.
@@ -19,8 +21,8 @@
 
 - **Main procedures**
 
-  - stage 1: from world coordinate to camera coordinate, this is from 3D points to 3D points including $R​$ and $t​$ etc. parameters. 
-  -  stage 2: from camera coordinate to image coordinate, this is from 3D to 2D points including $K$ (camera intrinsic) etc. parameters.
+  - stage 1: from world coordinate to camera coordinate, this is from 3D points to 3D points including $R$ and $t$ etc. parameters. 
+  - stage 2: from camera coordinate to image coordinate, this is from 3D to 2D points including $K$ (camera intrinsic) etc. parameters.
 
 - **From world coordinate to camera coordinate**
 
@@ -38,20 +40,17 @@
 
    	$\widetilde{X}$ and $\widetilde{C}$ is the location in the world coordinate respectively
 
-  ​	$\widetilde{X}_{cam}​$  is the location in the camera coordinate
+  ​	$\widetilde{X}_{cam}$  is the location in the camera coordinate
 
   - **From world coordinate to camera coordinate**
 
   ![2](imgs/2.png)
 
-  We set $R=R_x(\psi)R_y(\varphi)R_z(\theta)​$ therefore,
+  We set $R=R_x(\psi)R_y(\varphi)R_z(\theta)$ therefore,
   $$
- \begin{pmatrix}
-x & y \\\\
-z & v
-\end{pmatrix}
+  X_{cam}=\left( \begin{array}{ccc}X_{cam}\\\\1\end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\\\0&1\end{array}\right]\left( \begin{array}{ccc}\widetilde{X}\\\\1\end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\\\0&1\end{array}\right]X
   $$
-  Where we also can say $t=R\widetilde{C}​$ and the $X​$ we will discuss later.
+  Where we also can say $t=R\widetilde{C}$ and the $X$ we will discuss later.
 
 - **From camera coordinate to image coordinate**
 
@@ -85,10 +84,10 @@ z & v
   $$
   In matrix, 
   $$
-  \left(\begin{array}{ccc}X\\ Y\\ Z\\ 1\end{array}\right)↦
-  \left(\begin{array}{ccc}f\cdot{X}\\f\cdot{Y}\\Z\end{array}\right)=
-  \left[\begin{array}{ccc}f & 0 & 0 & 0 \\ 0 & f & 0 & 0\\0&0& 1&0\end{array}\right]
-  \left(\begin{array}{ccc}X\\ Y \\ Z \\ 1\end{array}\right)
+  \left(\begin{array}{ccc}X\\\\Y\\\\Z\\\\1\end{array}\right)↦
+  \left(\begin{array}{ccc}f\cdot{X}\\\\f\cdot{Y}\\\\Z\end{array}\right)=
+  \left[\begin{array}{ccc}f & 0 & 0 & 0 \\\\ 0 & f & 0 & 0\\\\0&0&1&0\end{array}\right]
+  \left(\begin{array}{ccc}X\\\\Y\\\\Z\\\\1\end{array}\right)
   $$
   Abbreviation, $P$ is the projection matrix but not complete now.
   $$
@@ -101,29 +100,29 @@ z & v
 
    ![4](/imgs/4.png)
 
-  We know, $p$ is the origin of plane coordinate but it is $(p_x,p_y)​$ in the image coordinate.
+  We know, $p$ is the origin of plane coordinate but it is $(p_x,p_y)$ in the image coordinate.
   $$
   (X,Y,Z)↦(f\cdot\frac{X}{Z}+p_x,f\cdot\frac{Y}{Z}+p_y)
   $$
   Matrix, (can divided by $Z$)
   $$
-  \left(\begin{array}{ccc}X \\ Y \\ Z \\ 1 \end{array}\right)↦
-  \left(\begin{array}{ccc}f\cdot{X}+Zp_x\\ f \cdot{Y}+Zp_y\\ Z \end{array}\right)=
-  \left[\begin{array}{ccc}f & 0 & p_x & 0 \\ 0 & f & p_y & 0\\0&0&1&0\end{array}\right]
-  \left(\begin{array}{ccc}X \\ Y \\ Z \\ 1 \end{array}\right)
+  \left(\begin{array}{ccc}X\\\\Y\\\\Z\\\\1\end{array}\right)↦
+  \left(\begin{array}{ccc}f\cdot{X}+Zp_x\\\\f\cdot{Y}+Zp_y\\\\Z\end{array}\right)=
+  \left[\begin{array}{ccc}f & 0 & p_x & 0 \\\\ 0 & f & p_y & 0\\\\0&0&1&0\end{array}\right]
+  \left(\begin{array}{ccc}X\\\\Y\\\\Z\\\\1\end{array}\right)
   $$
   Therefore,
   $$
-  \left(\begin{array}{ccc}fX+Zp_x\\ fY+Zp_y \\ Z \end{array}\right)=
-  \left[\begin{array}{ccc}f & 0 & p_x \\ 0 & f & p_y \\0&0&1\end{array}\right]
-  \left[\begin{array}{ccc}1 & 0 & 0&0 \\ 0 & 1 & 0 &0\\0&0&1&0\end{array}\right]
-  \left(\begin{array}{ccc}X \\ Y \\ Z \\ 1 \end{array}\right)
+  \left(\begin{array}{ccc}fX+Zp_x\\\\fY+Zp_y\\\\Z\end{array}\right)=
+  \left[\begin{array}{ccc}f & 0 & p_x \\\\ 0 & f & p_y \\\\0&0&1\end{array}\right]
+  \left[\begin{array}{ccc}1 & 0 & 0&0 \\\\ 0 & 1 & 0 &0\\\\0&0&1&0\end{array}\right]
+  \left(\begin{array}{ccc}X\\\\Y\\\\Z\\\\1\end{array}\right)
   $$
-  Here, **$K​$ named intrinsic parameters** is defined by
+  Here, **$K$ named intrinsic parameters** is defined by
   $$
-  K=\left[\begin{array}{ccc}f & 0 & p_x \\ 0 & f & p_y \\0&0&1\end{array}\right]
+  K=\left[\begin{array}{ccc}f & 0 & p_x \\\\ 0 & f & p_y \\\\0&0&1\end{array}\right]
   $$
-  And $P​$, we can assume the rotation matrix $R​$ is $I​$, and the translate matrix $t​$ is  $0​$
+  And $P$, we can assume the rotation matrix $R$ is $I$, and the translate matrix $t$ is  $0$
   $$
   P=K*[I|0]
   $$
@@ -138,7 +137,7 @@ z & v
   $$
   P=K[R|t]
   $$
-  Where **$R, t​$ is named the camera extrinsic parameters**.  
+  Where **$R, t$ is named the camera extrinsic parameters**.  
 
   - Convert the image coordinate by pixel
 
@@ -148,15 +147,15 @@ z & v
 
   $m_{y}$ denotes the numbers of pixels of $1m$ in the 
 
-  Thus, we can get the area of one pixel ($m^2​$),
+  Thus, we can get the area of one pixel ($m^2$),
   $$
   \frac{1}{m_{x}}\times\frac{1}{m_y}
   $$
   The pixel can be not the square, it also can be rectangle. We update $K$
   $$
-  K=\left[\begin{array}{ccc}m_{x} & 0 & 0 \\ 0 & m_{y} & 0 \\0&0&1\end{array}\right]
-  \left[\begin{array}{ccc}f & 0 & p_x \\ 0 & f & p_y \\0&0&1\end{array}\right]=
-  \left[\begin{array}{ccc}f_{x} & 0 & c_x \\ 0 & f_{y} & c_y \\0&0&1\end{array}\right]
+  K=\left[\begin{array}{ccc}m_{x} & 0 & 0 \\\\ 0 & m_{y} & 0 \\\\0&0&1\end{array}\right]
+  \left[\begin{array}{ccc}f & 0 & p_x \\\\ 0 & f & p_y \\\\0&0&1\end{array}\right]=
+  \left[\begin{array}{ccc}f_{x} & 0 & c_x \\\\ 0 & f_{y} & c_y \\\\0&0&1\end{array}\right]
   $$
   Generally, when we use camera intrinsic parameters $K$ to calculate, the provided parameters is converted values, e.g. it will provide $f_{x},f_{y},c_{x},c_{y}$.
 
@@ -164,15 +163,15 @@ z & v
 
   The final formulation is,
   $$
-  \left(\begin{array}{ccc}xZ \\ yZ \\ Z \end{array}\right)=
-  \left[\begin{array}{ccc}f_{x} & 0 & c_x \\ 0 & f_{y} & c_y \\0&0&1\end{array}\right]
+  \left(\begin{array}{ccc}xZ\\\\yZ\\\\Z\end{array}\right)=
+  \left[\begin{array}{ccc}f_{x} & 0 & c_x \\\\ 0 & f_{y} & c_y \\\\0&0&1\end{array}\right]
   [R_{3x3}|t_{3x1}]
-  \left(\begin{array}{ccc}X\\ Y \\Z\\1\end{array}\right)
+  \left(\begin{array}{ccc}X\\\\Y\\\\Z\\\\1\end{array}\right)
   $$
-  Thus, we can get $x(x,y)​$
+  Thus, we can get $x(x,y)$
   $$
-  \left(\begin{array}{ccc}xZ \\ yZ \\ Z \end{array}\right)\frac{1}{Z}↦
-  \left(\begin{array}{ccc}x \\ y \\ 1 \end{array}\right)
+  \left(\begin{array}{ccc}xZ\\\\yZ\\\\Z\end{array}\right)\frac{1}{Z}↦
+  \left(\begin{array}{ccc}x\\\\y\\\\1\end{array}\right)
   $$
 
 - **Considering Distortion Parameters**
@@ -202,11 +201,11 @@ z & v
 
   $x_{dis},y_{dis}$ represent the distorted coordinate
 
-  $x_{corr},y_{corr}​$ represent the corrected coordinate
+  $x_{corr},y_{corr}$ represent the corrected coordinate
 
-  $k_{1},k_{2},k_{3}​$ is the  radial distortion parameters
+  $k_{1},k_{2},k_{3}$ is the  radial distortion parameters
 
-  $p_{1},p_{2}​$ is the tangential distortion parameters
+  $p_{1},p_{2}$ is the tangential distortion parameters
 
   Therefore, we get 5 distortion parameters
   $$
