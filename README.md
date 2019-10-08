@@ -180,7 +180,7 @@
 
   - **Radial distortion** includes barrel distortion, pincushion distortion and mustache distortion.
 
-    ![5](C:/Users/Administrator/Desktop/camera%20calibration/imgs/5.png)
+    ![5](imgs/5.png)
 
     It can be corrected by
     $$
