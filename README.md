@@ -46,7 +46,7 @@
 
   We set $R=R_x(\psi)R_y(\varphi)R_z(\theta)​$ therefore,
   $$
-  X_{cam}=\left( \begin{array}{ccc}X_{cam}\\1\end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\0&1\end{array}\right]\left( \begin{array}{ccc}\widetilde{X}\\1\end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\0&1\end{array}\right]X
+  X_{cam}=\left( \begin{array}{ccc}X_{cam}\\ 1 \end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\0& 1\end{array}\right]\left( \begin{array}{ccc}\widetilde{X}\\ 1\end{array}\right)=\left[\begin{array}{ccc}R&−R\widetilde{C}\\0& 1\end{array}\right]X
   $$
   Where we also can say $t=R\widetilde{C}​$ and the $X​$ we will discuss later.
 
@@ -82,10 +82,10 @@
   $$
   In matrix, 
   $$
-  \left(\begin{array}{ccc}X\\Y\\Z\\1\end{array}\right)↦
+  \left(\begin{array}{ccc}X\\ Y\\ Z\\ 1\end{array}\right)↦
   \left(\begin{array}{ccc}f\cdot{X}\\f\cdot{Y}\\Z\end{array}\right)=
-  \left[\begin{array}{ccc}f & 0 & 0 & 0 \\ 0 & f & 0 & 0\\0&0&1&0\end{array}\right]
-  \left(\begin{array}{ccc}X\\Y\\Z\\1\end{array}\right)
+  \left[\begin{array}{ccc}f & 0 & 0 & 0 \\ 0 & f & 0 & 0\\0&0& 1&0\end{array}\right]
+  \left(\begin{array}{ccc}X\\ Y \\ Z \\ 1\end{array}\right)
   $$
   Abbreviation, $P$ is the projection matrix but not complete now.
   $$
@@ -104,17 +104,17 @@
   $$
   Matrix, (can divided by $Z$)
   $$
-  \left(\begin{array}{ccc}X\\Y\\Z\\1\end{array}\right)↦
-  \left(\begin{array}{ccc}f\cdot{X}+Zp_x\\f\cdot{Y}+Zp_y\\Z\end{array}\right)=
+  \left(\begin{array}{ccc}X \\ Y \\ Z \\ 1 \end{array}\right)↦
+  \left(\begin{array}{ccc}f\cdot{X}+Zp_x\\ f \cdot{Y}+Zp_y\\ Z \end{array}\right)=
   \left[\begin{array}{ccc}f & 0 & p_x & 0 \\ 0 & f & p_y & 0\\0&0&1&0\end{array}\right]
-  \left(\begin{array}{ccc}X\\Y\\Z\\1\end{array}\right)
+  \left(\begin{array}{ccc}X \\ Y \\ Z \\ 1 \end{array}\right)
   $$
   Therefore,
   $$
-  \left(\begin{array}{ccc}fX+Zp_x\\fY+Zp_y\\Z\end{array}\right)=
+  \left(\begin{array}{ccc}fX+Zp_x\\ fY+Zp_y \\ Z \end{array}\right)=
   \left[\begin{array}{ccc}f & 0 & p_x \\ 0 & f & p_y \\0&0&1\end{array}\right]
   \left[\begin{array}{ccc}1 & 0 & 0&0 \\ 0 & 1 & 0 &0\\0&0&1&0\end{array}\right]
-  \left(\begin{array}{ccc}X\\Y\\Z\\1\end{array}\right)
+  \left(\begin{array}{ccc}X \\ Y \\ Z \\ 1 \end{array}\right)
   $$
   Here, **$K​$ named intrinsic parameters** is defined by
   $$
@@ -161,15 +161,15 @@
 
   The final formulation is,
   $$
-  \left(\begin{array}{ccc}xZ\\yZ\\Z\end{array}\right)=
+  \left(\begin{array}{ccc}xZ \\ yZ \\ Z \end{array}\right)=
   \left[\begin{array}{ccc}f_{x} & 0 & c_x \\ 0 & f_{y} & c_y \\0&0&1\end{array}\right]
   [R_{3x3}|t_{3x1}]
-  \left(\begin{array}{ccc}X\\Y\\Z\\1\end{array}\right)
+  \left(\begin{array}{ccc}X\\ Y \\Z\\1\end{array}\right)
   $$
   Thus, we can get $x(x,y)​$
   $$
-  \left(\begin{array}{ccc}xZ\\yZ\\Z\end{array}\right)\frac{1}{Z}↦
-  \left(\begin{array}{ccc}x\\y\\1\end{array}\right)
+  \left(\begin{array}{ccc}xZ \\ yZ \\ Z \end{array}\right)\frac{1}{Z}↦
+  \left(\begin{array}{ccc}x \\ y \\ 1 \end{array}\right)
   $$
 
 - **Considering Distortion Parameters**
