@@ -223,7 +223,13 @@
 
 ### Camera calibration with SIFT detection and match algorithm
 
-- Main steps: (***see scripts for more information and feel free to modify***)
+- Using opencv api to calibrate camera, you need to change *img_root* in *calibration_opencv.py*
+
+  ```shell
+  python calibration_opencv.py
+  ```
+  
+- Self-implement main steps: (***see scripts for more information and feel free to modify***)
 
   - Use your camera or phone take several pictures (at least 4), put in the ***chessboards_imgs*** directory
 
@@ -246,7 +252,12 @@
     ```shell
     python calibrate_intrinsics.py --pattern_key_fname keypoints_dir/left01.txt --img_keypoints_root ./keypoints_dir/ --select_match_keypoints_root ./select_match_keypoints_dir/ --example_image ./meilan_note6_resized/note01.jpg
     ```
+    
+- Do perspective_transform using opencv api, you need to change the image path in the *perspective_transform.py*
 
+  ```shell
+  python perspective_transform.py
+  ```
     *Notes: need to adjust related parameters to get a better result.*
 
 
