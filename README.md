@@ -2,7 +2,14 @@
 
 **Notes:** Please install [GitHub with MathJax](https://chrome.google.com/webstore/detail/github-with-mathjax/ioemnmodlmafdkllaclgeombjnmnbima) to view LaTex formulation, Thank you.
 
-### **Theory:**
+<!--TOC-->
+
+- [Theory](#Theory)
+- [Camera calibration with SIFT detection and match algorithm](#Camera-calibration-with-SIFT-detection-and-match-algorithm)
+
+<!--TOC-->
+
+### **Theory**
 
 - **Definition:** A camera projects 3D world-points onto the 2D image plane.
 
@@ -212,9 +219,43 @@
   D=(k_{1},k_{2},p_{1},p_{2},k_{3})
   $$
 
-- Todo: coding
+- 
+
+### Camera calibration with SIFT detection and match algorithm
+
+- Main steps: (***see scripts for more information and feel free to modify***)
+
+  - Use your camera or phone take several pictures (at least 4), put in the ***chessboards_imgs*** directory
+
+  - Run *detect_keypoints_sift.py* for each pattern images in chessboards_imgs directory to get related ***keypoints and descriptors***. For example:
+
+    ```shell
+    python detect_keypoints_sift.py --in_fname ./chessboards_imgs/left01.jpg --out_fname keypoints_dir/left01.txt
+    ```
+
+    
+
+  - Run *sift_match.py* for each pattern images in chessboards_imgs directory to get related ***keypoints and descriptors***. For example:
+
+    ```shell
+     python match_keypoints.py --in_fname_1 ./chessboards_imgs/left01.jpg --in_fname_2 ./chessboards_imgs/left01.jpg --out_fname match_left01_to_left02.txt
+    ```
+
+  - Run *calibrate_intrinsics.py* to calculate **camera intrinsics**. 
+
+    ```shell
+    python calibrate_intrinsics.py --pattern_key_fname keypoints_dir/left01.txt --img_keypoints_root ./keypoints_dir/ --select_match_keypoints_root ./select_match_keypoints_dir/ --example_image ./meilan_note6_resized/note01.jpg
+    ```
+
+    *Notes: need to adjust related parameters to get a better result.*
 
 
+
+[TODO] Implement the function *calibrateCamera*.
+
+
+
+If you have any question or find any problems, please contact me or issue.
 
 
 
@@ -222,5 +263,5 @@
   - <https://blog.csdn.net/Peng___Peng/article/details/51725219>
   - <https://blog.csdn.net/honyniu/article/details/51004397>
   - <https://blog.csdn.net/mightbxg/article/details/79363699>
-  - 
+  - https://github.com/ksimek/sift_calibration
 
