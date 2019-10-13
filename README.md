@@ -228,6 +228,11 @@
   ```shell
   python calibration_opencv.py
   ```
+
+- Maybe you want to use harris detector to try using your image.
+  ```
+  python harris_detector.py
+  ```
   
 - Self-implement main steps: (***see scripts for more information and feel free to modify***)
 
