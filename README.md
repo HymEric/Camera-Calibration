@@ -263,4 +263,5 @@ If you have any question or find any problems, please contact me or issue.
   - <https://blog.csdn.net/honyniu/article/details/51004397>
   - <https://blog.csdn.net/mightbxg/article/details/79363699>
   - https://github.com/ksimek/sift_calibration
+  - https://github.com/rmislam/PythonSIFT/blob/master/siftdetector.py
 
